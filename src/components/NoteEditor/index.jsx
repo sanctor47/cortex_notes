@@ -10,7 +10,6 @@ import {
 } from "../../services/notes.services";
 import { FaMagic, FaPlus, FaTrash } from "react-icons/fa";
 import { BiMerge, BiPin } from "react-icons/bi";
-import useClickOutside from "../../hooks/useClickOutSide";
 import LabelBadge from "../LabelBadge";
 import { getLabelsArray } from "../../services/labels.services";
 import LabelsDropDown from "./LabelsDropDown";
