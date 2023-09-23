@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+    --color-background: 250, 250, 250;
+    --color-text: 24, 24, 24;
+    --color-primary: 49, 46, 181;
+    --color-secondary: 113, 113, 122;
+    --color-accent: 9, 9, 11;
+  }
+
+  .darkTheme {
+    --color-text: 250, 250, 250;
+    --color-background: 24, 24, 24;
+    --color-primary: 49, 46, 181;
+    --color-secondary: 2, 2, 3;
+    --color-accent: 78, 78, 95;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+    /* padding-left: 10px; */
+    /* margin-right: 10px; */
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  * {
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-text));
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  
+
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+  /* ... */
+  ul,
+  ol {
+    @apply list-disc list-inside;
+  }
+}
+
+.app {
+  /* background-color: rgb(var(--color-background)); */
+  background-color: red;
+  height: 100dvh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  max-height: 360px;
+  /* height: fit-content; */
+  border: 1px solid rgb(var(--color-text));
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  padding: 10px;
+  overflow: hidden;
+}
+
+.rendered-html-output {
+  width: 300px;
+  overflow: hidden;
+  /* overflow: auto; */
+  max-height: 180px;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rendered-html-output2 {
+  /* width: 300px; */
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 180px;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  /* overflow-y: scroll; */
+  margin-bottom: 60px;
+}
+.my-masonry-grid_column {
+  background-clip: padding-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 450px) {
+.card{
+  width: 98;
+}
+}
+
+.quill-con .ql-container {
+  border: none;
+  min-height: 320px;
+  max-height: 320px;
+  overflow-y: scroll;
+  
+  /* background-color: #ccc; */
+}
+
+.quill-con .ql-toolbar {
+  border: none;
+  color: rgb(var(--color-text));
+  /* background-color: #ccc; */
+}
+
+.ql-toolbar {
+  /* background-color: aqua; */
+  background-color: transparent;
+}
+
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button {
+  /* border: none; */
+  /* cursor: pointer; */
+  /* color: white; */
+
+  /* display: inline-block; */
+  /* float: left; */
+  /* height: 24px; */
+  /* padding: 3px 5px; */
+  /* width: 28px; */
+}
