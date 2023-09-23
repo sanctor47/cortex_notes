@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { db } from "../../config/DBConfig";
 import { FaEdit, FaPlus, FaSave, FaTrash } from "react-icons/fa";
 import TextEditor from "../NoteEditor/TextEditor";
-import useClickOutside from "../../hooks/useClickOutSide";
 
 const PromptManger = ({ setPromptMangerIsOpen }) => {
   const prompts = useLiveQuery(() => db.prompts.toArray());
