@@ -1,16 +1,9 @@
 import React, { useState } from "react";
-import {
-  FaArrowAltCircleLeft,
-  FaCheck,
-  FaEdit,
-  FaPlus,
-  FaTrash,
-} from "react-icons/fa";
+import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 import { db } from "../../config/DBConfig";
 import { useLiveQuery } from "dexie-react-hooks";
 import { useAtom } from "jotai";
 import { labelFilter, labeslMangerOpen } from "../../stores/Atoms";
-import useClickOutside from "../../hooks/useClickOutSide";
 import { addLabel, deleteLabel } from "../../services/labels.services";
 
 const LabelsManger = () => {
@@ -19,9 +12,7 @@ const LabelsManger = () => {
   const labels = useLiveQuery(() => db.labels.toArray());
   const [labelMangerIsOpen, setLabelMangerIsOpen] = useAtom(labeslMangerOpen);
   const [filter, setFilter] = useAtom(labelFilter);
-  const labelMangerDrawerRef = useClickOutside(() =>
-    setLabelMangerIsOpen(false)
-  );
+ 
 
   const handleCreateOption = () => {
     if (searchText.trim() !== "") {
@@ -35,10 +26,14 @@ const LabelsManger = () => {
   );
 
   return (
-    <div ref={labelMangerDrawerRef}>
+    <div>
+      <FaPlus
+        className="rotate-45"
+        size={24}
+        onClick={() => setLabelMangerIsOpen(false)}
+      />
       <h2>Labels</h2>
-      {filter && <button onClick={()=>setFilter("")}>Clear</button>}
-      {/* <h4>{filter}</h4> */}
+      {filter && <button onClick={() => setFilter("")}>Clear</button>}
       <div className=" mt-2 overflow-y-scroll">
         <div className="flex  items-center px-4 border-b">
           <input
@@ -79,10 +74,6 @@ const LabelsManger = () => {
 };
 
 const LabelItem = ({ label, filter, setFilter }) => {
-  const onLabelDelete = (label) => {
-    // removeLabelFromNote(label.id);
-    deleteLabel(label.id);
-  };
   return (
     <div
       key={label.id}
@@ -100,7 +91,7 @@ const LabelItem = ({ label, filter, setFilter }) => {
         <div className="flex p-2">
           <FaEdit />
         </div>
-        <div className="flex p-2" onClick={() => db.deleteLabel(label.id)}>
+        <div className="flex p-2" onClick={() => deleteLabel(label.id)}>
           <FaTrash />
         </div>
       </div>
